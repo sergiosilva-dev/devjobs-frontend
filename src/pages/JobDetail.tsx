@@ -1,9 +1,54 @@
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Seo from '../components/Seo';
+import { getJob } from '../lib/api';
+import { Job } from '../lib/schema';
+import { jobPostingLd } from '../lib/seo';
+
 export default function JobDetail() {
+  const { id } = useParams();
+  const [job, setJob] = useState<Job | null>(null);
+
+  useEffect(() => {
+    (async () => {
+      const data = id ? await getJob(id) : undefined;
+      setJob(data ?? null);
+    })();
+  }, [id]);
+
+  if (!job) return <div className="card p-6">Cargando…</div>;
+
+  const ld = jobPostingLd({
+    title: job.title,
+    description: job.description,
+    datePosted: job.publishedAt,
+    hiringOrganization: { name: job.company },
+    employmentType: job.employmentType,
+    jobLocation: { addressLocality: job.location },
+    baseSalary:
+      job.salaryMin || job.salaryMax
+        ? {
+            value: {
+              currency: job.currency,
+              minValue: job.salaryMin,
+              maxValue: job.salaryMax,
+              unitText: 'MONTH',
+            },
+          }
+        : undefined,
+  });
+
   return (
     <>
-      <Seo title="Detalle de empleo" />
-      <div className="card p-6">Detalle de la vacante (pronto: JSON-LD JobPosting)</div>
+      <Seo title={job.title} description={job.description.slice(0, 150)} jsonLd={ld} />
+      <article className="card p-6 prose prose-invert max-w-none">
+        <h1 className="mb-2">{job.title}</h1>
+        <p className="opacity-80">
+          {job.company} • {job.location ?? '—'}
+        </p>
+        <hr />
+        <p>{job.description}</p>
+      </article>
     </>
   );
 }
