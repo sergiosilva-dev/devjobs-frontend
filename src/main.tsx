@@ -1,3 +1,6 @@
+// main.tsx
+// Punto de entrada: monta la App dentro de #root y carga estilos globales.
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './app/App';

@@ -1,7 +1,10 @@
+/* index.css */
+/* Tailwind base */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Preferencias del color scheme */
 :root {
   color-scheme: light dark;
 }
@@ -11,6 +14,7 @@ body,
   height: 100%;
 }
 
+/* Estilos base (2025 look) */
 @layer base {
   body {
     @apply bg-zinc-950 text-zinc-100;
@@ -20,6 +24,7 @@ body,
   }
 }
 
+/* Utilidades de componentes */
 @layer components {
   .card {
     @apply rounded-2xl border border-zinc-800 bg-zinc-900/60 shadow-md;

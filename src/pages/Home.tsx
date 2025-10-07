@@ -1,8 +1,12 @@
+// Home.tsx
+// Landing sencilla con mensaje y CTA al listado.
+
 import Seo from '../components/Seo';
 
 export default function Home() {
   return (
     <>
+      {/* Metadatos de la página */}
       <Seo title="Inicio" description="Encuentra ofertas de empleo en tecnología" />
       <section className="card p-8">
         <h1 className="text-3xl font-semibold">Bienvenido a DevJobs</h1>

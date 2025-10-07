@@ -1,13 +1,19 @@
+// JobForm.tsx
+// Formulario controlado para crear/editar ofertas.
+// Validaciones mínimas (campos obligatorios) y redirección al guardar.
+
 import { useState } from 'react';
 import Seo from '../components/Seo';
 import type { FormEvent } from 'react';
 import { createOrUpdateJob } from '../lib/api';
 
 export default function JobForm() {
+  // Estado controlado de inputs
   const [title, setTitle] = useState('');
   const [company, setCompany] = useState('');
   const [location, setLocation] = useState('');
 
+  // Manejo del envío (evita reload, valida y persiste)
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!title || !company) {
@@ -15,6 +21,7 @@ export default function JobForm() {
       return;
     }
     await createOrUpdateJob({ title, company, location, description: 'Descripción pendiente' });
+    // Redirige al listado tras guardar
     window.location.href = '/jobs';
   }
 

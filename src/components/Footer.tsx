@@ -1,3 +1,6 @@
+// Footer.tsx
+// Pie de página simple con derechos/nota técnica.
+
 export default function Footer() {
   return (
     <footer className="border-t border-zinc-800">

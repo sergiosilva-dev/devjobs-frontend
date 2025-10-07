@@ -1,6 +1,9 @@
-// Esquemas y tipos para ofertas (valida datos entrantes/salientes)
+// schema.ts
+// Contratos de datos con Zod (validación en runtime) + tipos TS (compile-time).
+
 import { z } from 'zod';
 
+// Estructura de una oferta de empleo
 export const JobSchema = z.object({
   id: z.string(),
   title: z.string(),
@@ -14,6 +17,7 @@ export const JobSchema = z.object({
   employmentType: z.string().optional(),
 });
 
+// Respuesta paginada
 export const JobListSchema = z.object({
   total: z.number(),
   page: z.number(),
@@ -21,5 +25,6 @@ export const JobListSchema = z.object({
   items: z.array(JobSchema),
 });
 
+// Tipos TS derivados de los esquemas (ayudan al IDE y al compilador)
 export type Job = z.infer<typeof JobSchema>;
 export type JobList = z.infer<typeof JobListSchema>;

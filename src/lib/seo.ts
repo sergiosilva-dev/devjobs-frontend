@@ -1,3 +1,6 @@
+// seo.ts
+// Helper para generar JSON-LD de JobPosting (mejora el SEO de los detalles de oferta).
+
 export const jobPostingLd = (job: {
   title: string;
   description: string;

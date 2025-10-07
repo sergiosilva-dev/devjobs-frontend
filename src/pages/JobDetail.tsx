@@ -1,3 +1,6 @@
+// JobDetail.tsx
+// Muestra el detalle de una oferta e inyecta JSON-LD (JobPosting) para SEO.
+
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Seo from '../components/Seo';
@@ -9,6 +12,7 @@ export default function JobDetail() {
   const { id } = useParams();
   const [job, setJob] = useState<Job | null>(null);
 
+  // Carga la oferta por id cuando cambia la ruta
   useEffect(() => {
     (async () => {
       const data = id ? await getJob(id) : undefined;
@@ -18,6 +22,7 @@ export default function JobDetail() {
 
   if (!job) return <div className="card p-6">Cargando…</div>;
 
+  // JSON-LD para buscadores (JobPosting)
   const ld = jobPostingLd({
     title: job.title,
     description: job.description,
