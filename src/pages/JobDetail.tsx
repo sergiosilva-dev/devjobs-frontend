@@ -45,7 +45,12 @@ export default function JobDetail() {
 
   return (
     <>
-      <Seo title={job.title} description={job.description.slice(0, 150)} jsonLd={ld} />
+      <Seo
+        path={`/jobs/${id}`}
+        title={job.title}
+        description={job.description.slice(0, 150)}
+        jsonLd={ld}
+      />
       <article className="card p-6 prose prose-invert max-w-none">
         <h1 className="mb-2">{job.title}</h1>
         <p className="opacity-80">

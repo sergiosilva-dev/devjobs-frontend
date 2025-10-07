@@ -27,7 +27,7 @@ export default function JobForm() {
 
   return (
     <>
-      <Seo title="Publicar empleo" />
+      <Seo path="/jobs/new" title="Publicar empleo" index={false} />
       <form className="card p-6 space-y-4" onSubmit={handleSubmit} aria-label="Publicar empleo">
         <div>
           <label className="block mb-1">Título*</label>

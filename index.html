@@ -1,22 +1,72 @@
 <!doctype html>
-<html lang="en">
+<html lang="es" dir="ltr">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Color y modo -->
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- Canonical (fallback) -->
+  <link rel="canonical" href="http://localhost:5173/" />
+
+  <!-- Manifest + Favicons -->
   <link rel="manifest" href="/manifest.webmanifest" />
-  <meta name="theme-color" content="#020617" />
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="shortcut icon" href="/favicon.ico" />
-  <meta name="theme-color" content="#0a0a0a">
+
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+
+  <link rel="preload" as="image" href="/og-image.png" imagesrcset="/og-image.png 1x" />
+
+  <!-- Meta por defecto (fallback) -->
+  <title>DevJobs — Encuentra y publica ofertas tech</title>
+  <meta name="description"
+    content="DevJobs es una plataforma moderna para descubrir y publicar ofertas de empleo en tecnología." />
+
+  <!-- Open Graph por defecto -->
   <meta property="og:site_name" content="DevJobs" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DevJobs — Encuentra y publica ofertas tech" />
+  <meta property="og:description" content="Plataforma moderna para descubrir y publicar vacantes tecnológicas." />
+  <meta property="og:url" content="http://localhost:5173/" />
   <meta property="og:image" content="/og-image.png" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DevJobs — Encuentra y publica ofertas tech" />
+  <meta name="twitter:description" content="Plataforma moderna para vacantes tecnológicas." />
   <meta name="twitter:image" content="/og-image.png" />
-  <title>devjobs-frontend</title>
+
+  <!-- Datos estructurados base (Organization + WebSite) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "DevJobs",
+      "url": "http://localhost:5173/",
+      "logo": "/android-chrome-512x512.png"
+    }
+    </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "DevJobs",
+      "url": "http://localhost:5173/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://localhost:5173/jobs?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
 </head>
 
 <body>

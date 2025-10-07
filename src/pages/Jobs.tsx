@@ -38,7 +38,7 @@ export default function Jobs() {
 
   return (
     <>
-      <Seo title="Empleos" description="Listado de ofertas de trabajo" />
+      <Seo path="/jobs" title="Empleos" description="Listado de ofertas de trabajo" />
 
       {/* Encabezado + CTA para crear oferta */}
       <div className="flex items-center justify-between mb-4 gap-3">

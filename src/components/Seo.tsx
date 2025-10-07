@@ -5,46 +5,51 @@
 // - Soporte para JSON-LD (Structured Data) cuando se requiera.
 
 import { Helmet } from 'react-helmet-async';
+import { SITE_NAME, SITE_URL, DEFAULT_TITLE, DEFAULT_DESC, DEFAULT_IMAGE } from '../lib/site';
 
 type Props = {
-  title?: string; // Título específico de la vista
-  description?: string; // Descripción corta (<= 160 chars idealmente)
-  url?: string; // Canonical URL
-  image?: string; // Imagen para OG/Twitter
-  jsonLd?: object; // Objeto JSON-LD para inyectar en <script type="application/ld+json">
+  title?: string;
+  description?: string;
+  path?: string; // '/jobs/123' → canónica absoluta
+  image?: string; // override og image
+  jsonLd?: object; // JSON-LD específico de la página
+  index?: boolean; // por defecto true, false = noindex
 };
 
-export default function Seo({ title, description, url, image, jsonLd }: Props) {
-  // Construye el título completo (marca + página)
-  const full = title ? `${title} | DevJobs` : 'DevJobs';
+export default function Seo({ title, description, path, image, jsonLd, index = true }: Props) {
+  const fullTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE;
+  const desc = description || DEFAULT_DESC;
+  const canonical = path ? `${SITE_URL}${path}` : SITE_URL;
+  const ogImage = image || DEFAULT_IMAGE;
 
   return (
     <>
       <Helmet>
-        {/* Title / Description */}
-        <title>{full}</title>
-        {description && <meta name="description" content={description} />}
-        {url && <link rel="canonical" href={url} />}
+        <title>{fullTitle}</title>
+        <meta name="description" content={desc} />
+        <link rel="canonical" href={canonical} />
+
+        {/* Indexación */}
+        <meta name="robots" content={index ? 'index,follow' : 'noindex,nofollow'} />
 
         {/* Open Graph */}
+        <meta property="og:site_name" content={SITE_NAME} />
         <meta property="og:type" content="website" />
-        {url && <meta property="og:url" content={url} />}
-        {title && <meta property="og:title" content={full} />}
-        {description && <meta property="og:description" content={description} />}
-        {image && <meta property="og:image" content={image} />}
+        <meta property="og:title" content={fullTitle} />
+        <meta property="og:description" content={desc} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:image" content={ogImage} />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        {title && <meta name="twitter:title" content={full} />}
-        {description && <meta name="twitter:description" content={description} />}
-        {image && <meta name="twitter:image" content={image} />}
+        <meta name="twitter:title" content={fullTitle} />
+        <meta name="twitter:description" content={desc} />
+        <meta name="twitter:image" content={ogImage} />
       </Helmet>
 
-      {/* Structured Data (JSON-LD) */}
       {jsonLd && (
         <script
           type="application/ld+json"
-          // Nota: dangerouslySetInnerHTML es el método recomendado para inyectar JSON-LD
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       )}
