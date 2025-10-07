@@ -4,7 +4,7 @@ import JobCard from '../components/JobCard';
 import SearchBar from '../components/SearchBar';
 import Pagination from '../components/Pagination';
 import { listJobs } from '../lib/api';
-import { Job } from '../lib/schema';
+import type { Job } from '../lib/schema';
 
 export default function Jobs() {
   const [q, setQ] = useState('');
