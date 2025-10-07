@@ -1,5 +1,6 @@
 // API mockeada con datos locales. Cambia BASE_URL cuando conectes backend real.
-import { Job, JobList, JobListSchema } from './schema';
+import type { Job, JobList } from './schema';
+import { JobListSchema } from './schema';
 
 const MOCK: Job[] = [
   {
@@ -20,6 +21,7 @@ const MOCK: Job[] = [
     title: 'Backend Java (Spring)',
     company: 'Tech Labs',
     location: 'Remoto',
+    currency: 'COP',
     publishedAt: new Date().toISOString(),
     description: 'APIs REST con Spring Boot. JPA, seguridad y pruebas.',
     employmentType: 'FULL_TIME',

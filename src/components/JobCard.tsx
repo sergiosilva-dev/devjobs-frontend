@@ -1,5 +1,5 @@
 // Tarjeta de empleo (presentación)
-import { Job } from '../lib/schema';
+import type { Job } from '../lib/schema';
 
 export default function JobCard({ job }: { job: Job }) {
   return (

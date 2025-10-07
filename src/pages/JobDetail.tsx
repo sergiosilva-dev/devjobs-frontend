@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Seo from '../components/Seo';
 import { getJob } from '../lib/api';
-import { Job } from '../lib/schema';
+import type { Job } from '../lib/schema';
 import { jobPostingLd } from '../lib/seo';
 
 export default function JobDetail() {

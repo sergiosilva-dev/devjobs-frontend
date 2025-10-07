@@ -1,4 +1,4 @@
-type Props = { value: string; onChange: (v: string) => void; onSubmit: () => void };
+type Props = { value: string; onChange: (value: string) => void; onSubmit: () => void };
 export default function SearchBar({ value, onChange, onSubmit }: Props) {
   return (
     <form

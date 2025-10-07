@@ -1,7 +1,9 @@
-type Props = { page: number; pageSize: number; total: number; onChange: (p: number) => void };
+type Props = { page: number; pageSize: number; total: number; onChange: (page: number) => void };
+
 export default function Pagination({ page, pageSize, total, onChange }: Props) {
   const pages = Math.max(1, Math.ceil(total / pageSize));
   if (pages <= 1) return null;
+
   return (
     <nav className="flex gap-2 items-center" aria-label="Paginación">
       <button className="btn" disabled={page === 1} onClick={() => onChange(page - 1)}>

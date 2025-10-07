@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Seo from '../components/Seo';
+import type { FormEvent } from 'react';
 import { createOrUpdateJob } from '../lib/api';
 
 export default function JobForm() {
@@ -7,7 +8,7 @@ export default function JobForm() {
   const [company, setCompany] = useState('');
   const [location, setLocation] = useState('');
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!title || !company) {
       alert('Título y empresa son obligatorios');
