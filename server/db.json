@@ -1,0 +1,26 @@
+{
+  "jobs": [
+    {
+      "id": "1",
+      "title": "Frontend React Developer",
+      "company": "Up Develop",
+      "location": "Bogotá, CO",
+      "salaryMin": 5000000,
+      "salaryMax": 8000000,
+      "currency": "COP",
+      "publishedAt": "2025-09-05T10:00:00.000Z",
+      "description": "Construcción de interfaces en React + TypeScript. Experiencia con hooks, routing y pruebas.",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "2",
+      "title": "Backend Java (Spring)",
+      "company": "Tech Labs",
+      "location": "Remoto",
+      "currency": "COP",
+      "publishedAt": "2025-09-10T10:00:00.000Z",
+      "description": "APIs REST con Spring Boot. JPA, seguridad y pruebas.",
+      "employmentType": "FULL_TIME"
+    }
+  ]
+}
