@@ -183,7 +183,7 @@ Este proyecto se distribuye bajo la licencia [**MIT**](LICENSE).
 
 ## Previsualización
 
-(\public\og-image.png)
+![Vista previa](public/og-image.png)
 
 ---
 
